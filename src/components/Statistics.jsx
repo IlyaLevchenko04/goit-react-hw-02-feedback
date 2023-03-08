@@ -1,7 +1,13 @@
-import { List } from './Feedback.styled';
+import { List } from './Feedback/FeedbackStyled/Feedback.styled';
 import PropTypes from 'prop-types';
 
-export const Statistics = ({ good, bad, neutral }) => {
+export const Statistics = ({
+  good,
+  bad,
+  neutral,
+  positivePercentage,
+  total,
+}) => {
   return !(good + bad + neutral) > 0 ? (
     'There are no feedback'
   ) : (
@@ -9,13 +15,9 @@ export const Statistics = ({ good, bad, neutral }) => {
       <li>Good: {good}</li>
       <li>Neutral: {neutral}</li>
       <li>Bad: {bad}</li>
-      <li>Total: {bad + neutral + good}</li>
+      <li>Total: {total}</li>
       <li>
-        Positive feedback:{' '}
-        {!(bad + neutral + good)
-          ? 0
-          : ((good / (bad + neutral + good)) * 100).toFixed(2)}
-        %
+        Positive feedback: {!(bad + neutral + good) ? 0 : positivePercentage}%
       </li>
     </List>
   );

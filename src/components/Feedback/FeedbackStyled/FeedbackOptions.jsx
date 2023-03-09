@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
   return (
     <BtnList>
-      {options.map((option, ind = 1) => {
+      {options.map(option => {
         return (
-          <li key={ind + 1}>
+          <li key={option}>
             <button onClick={onLeaveFeedback} name={option}>
               {option}
             </button>
